@@ -1,0 +1,31 @@
+/ Fontawesome and Bootstrap-Social for Github buttons
+link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"
+link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css" integrity="sha384-KMis1ci1uYEByUqyQ+ys92P9u9WtqmYQmUvEpXsB5BuMYyTHljPVNJ24Jl6ib3o8" crossorigin="anonymous"
+body class="auth_background"
+  div class="row" style="margin-top:100px;"
+    div class="col-sm-4"
+    div class="col-sm-4"
+      h1 Welcome
+    div class="col-sm-4"
+  div class="row" style="margin-top:25px;"
+    div class="col-sm-4"
+    div class="col-sm-4"
+      form method='post' action='/auth/login' id='form-login'
+        div class="form-group"
+          div class="input-group"
+            span for='input-email' class="input-group-addon" 信箱
+            input class="form-control" type='text' name='email' id='input-email' 
+        div class="form-group"
+          div class="input-group"
+            span for='input-password' class="input-group-addon" 密碼
+            input class="form-control" type='password' name='password' id='input-password' 
+        div class="form-group"
+          button type='submit' id='button-login' value='login' class="btn btn-primary btn-block" 登入
+    div class="col-sm-4"
+  div class="row" style="margin-top:25px;"
+    div class="col-sm-4"
+    div class="col-sm-4"
+      span 還不是會員？
+      a href='register' 註冊一下！
+    div class="col-sm-4" 
+

@@ -1,0 +1,39 @@
+body class="home_background"
+  table style="width:100%"
+    tr
+      div class="bulletin col-sm-1" style="height:60px;"
+        img class="circle-square" src="/teacher.png" style="width:50px;height:50px;float:left;margin:5px;"
+      div class="bulletin col-sm-2" style="height:60px;"
+        p style="color:black;"
+          == current_account['organization']['name']
+          br
+          == current_account['name']
+      div class="bulletin col-sm-9" style="height:60px;" 
+        p style="color:black;" 任務：下方食、衣、住、行、育、樂類別中各有些問句，<br> 要替各類問句做換句話說！
+    tr
+      th
+        div class="eat_progs" <br> 食 <br> 40/100
+        a href="eat/label"
+          div class="eat_image"
+      th
+        div class="cloth_progs" <br> 衣 <br> 40/100
+        a href="#"  
+          div class="cloth_image"
+      th
+        div class="live_progs" <br> 住 <br> 40/100
+        a href="#"  
+          div class="live_image"
+      th
+        div class="traffic_progs" <br> 行 <br> 40/100
+        a href="#"  
+          div class="traffic_image"
+      th
+        div class="education_progs" <br> 育 <br> 不需作答
+        a href="#"
+          div class="education_image"
+      th
+        div class="fun_progs" <br> 樂 <br> 50/100
+        a href="#"  
+          div class="fun_image"
+
+    

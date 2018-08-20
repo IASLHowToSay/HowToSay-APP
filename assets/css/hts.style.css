@@ -1,0 +1,184 @@
+
+/*首頁背景*/
+.home_background{
+    background-image: url(/indexBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+/*首頁背景*/
+.auth_background{
+    background-image: url(/authBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+.circle-square{
+    border-radius:50%;
+}
+
+/*首頁公告*/
+.bulletin{
+    background-color: #ffc06d;
+    font-size:20px;
+    color:white;
+}
+
+/*首頁個分類進度*/
+.eat_progs{
+    text-align: center;
+    background-color: #f18c1c;
+    font-size: 25px;
+    color:white;
+}
+.cloth_progs{
+    text-align: center;
+    background-color: #d24f3a;
+    font-size: 25px;
+    color:white;
+}
+.live_progs{
+    text-align: center;
+    background-color: #f5d1b2;
+    font-size: 25px;
+    color:white;
+}
+.traffic_progs{
+    text-align: center;
+    background-color: #82b344;
+    font-size: 25px;
+    color:white;
+}
+.education_progs{
+    text-align: center;
+    background-color: #26978f;
+    font-size: 25px;
+    color:white;
+}
+.fun_progs{
+    text-align: center;
+    background-color: #4d4d4d;
+    font-size: 25px;
+    color:white;
+}
+
+
+/*首頁個分類的背景圖*/
+div.eat_image {
+    content:url(/home/eat_button.png);
+    width: 100%;
+    height: 100%;
+}
+div.cloth_image {
+    content:url(/home/cloth_button.png);
+    width: 100%;
+    height: 100%;
+}
+div.live_image {
+    content:url(/home/live_button.png);
+    width: 100%;
+    height: 100%;
+}
+div.traffic_image {
+    content:url(/home/traffic_button.png);
+    width: 100%;
+    height: 100%;
+}
+div.education_image {
+    content:url(/home/education_button.png);
+    width: 100%;
+    height: 100%;
+}
+div.fun_image {
+    content:url(/home/fun_button.png);
+    width: 100%;
+    height: 100%;
+}
+
+/*食背景*/
+.eat_background{
+    background-image: url(/eatBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+
+.table tbody tr td{
+    vertical-align: middle;
+}
+
+/* .form-control{
+    padding:5px 15px; 
+    border:2px #178acc solid;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: white; 
+} */
+
+/* .input-group-addon:first-child {
+    border-right: 0;
+    background: #1789cd;
+    border-color: #1789cd;
+    color: white;
+}
+
+.inputGroupContainer{
+    margin-bottom: 20px
+}
+
+/* label{
+    border-bottom-left-radius: 3px;
+    background-color: #1789cd;
+    padding: 9px;
+    border-top-left-radius: 3px;
+    color: white;
+} */
+/*
+.leftbtn{
+    vertical-align: unset;
+    border-radius: 0px;
+}
+
+.rightbtn{
+    vertical-align: unset;
+    border-radius: 0px;
+}
+
+#star-1:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-1'] svg, #star-3:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-1'] svg, #star-4:checked ~ section [for='star-2'] svg, #star-4:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-1'] svg, #star-5:checked ~ section [for='star-2'] svg, #star-5:checked ~ section [for='star-3'] svg, #star-5:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-5'] svg {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  
+  #star-1:checked ~ section [for='star-1'] svg path, #star-2:checked ~ section [for='star-1'] svg path, #star-2:checked ~ section [for='star-2'] svg path, #star-3:checked ~ section [for='star-1'] svg path, #star-3:checked ~ section [for='star-2'] svg path, #star-3:checked ~ section [for='star-3'] svg path, #star-4:checked ~ section [for='star-1'] svg path, #star-4:checked ~ section [for='star-2'] svg path, #star-4:checked ~ section [for='star-3'] svg path, #star-4:checked ~ section [for='star-4'] svg path, #star-5:checked ~ section [for='star-1'] svg path, #star-5:checked ~ section [for='star-2'] svg path, #star-5:checked ~ section [for='star-3'] svg path, #star-5:checked ~ section [for='star-4'] svg path, #star-5:checked ~ section [for='star-5'] svg path {
+    fill: #FFBB00;
+    stroke: #cc9600;
+  }
+
+  label svg {
+    fill: white;
+    stroke: #CCC;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    transition: -webkit-transform 200ms ease-in-out;
+    transition: transform 200ms ease-in-out;
+    transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  }
+  label svg path {
+    transition: fill 200ms ease-in-out, stroke 100ms ease-in-out;
+  }
+
+  #star-1:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-1'] svg, #star-3:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-1'] svg, #star-4:checked ~ section [for='star-2'] svg, #star-4:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-1'] svg, #star-5:checked ~ section [for='star-2'] svg, #star-5:checked ~ section [for='star-3'] svg, #star-5:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-5'] svg {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  } */
+
+  
