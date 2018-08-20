@@ -9,4 +9,4 @@ test:
 
 production:
   API_URL: https://howtosay-api.herokuapp.com/api/v1
-  APP_URL: https://howtosay.herokuapp.com
+  APP_URL: https://howtosay-app.herokuapp.com
