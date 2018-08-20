@@ -10,7 +10,7 @@ module Howtosay
       routing.is 'login' do
         # GET /auth/login
         routing.get do
-          routing.redirect '/' unless session[:current_account].nil?
+          routing.redirect '/' unless @current_account.nil?
           view "auth/login", layout: { template: '/layout/layout_auth/main' }
         end
 

@@ -15,16 +15,18 @@ module Howtosay
     plugin :multi_route
     plugin :flash
 
-    ONE_YEAR = 12*30*24*60*60
+    # ONE_YEAR = 12*30*24*60*60
 
-    use Rack::Session::Cookie,
-        expire_after: ONE_YEAR,
-        secret: Howtosay::App.config.SESSION_SECRET
+    # use Rack::Session::Cookie,
+    #     expire_after: ONE_YEAR,
+    #     secret: Howtosay::App.config.SESSION_SECRET
 
     route do |routing|
       # routing begins
-      @current_account = session[:current_account]
-      #@current_account = SecureSession.new(session).get(:current_account)
+      #@current_account = session[:current_account]
+      puts "-session: #{session}"
+      @current_account = SecureSession.new(session).get(:current_account)
+      
       puts "-current account : #{@current_account}"
     
       routing.public
