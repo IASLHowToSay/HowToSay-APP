@@ -22,7 +22,6 @@ module Howtosay
           # 得到 account 後 將account存於 session 就此創建 session
           SecureSession.new(session).set(:current_account, logged_in_account)
           #session[:current_account] = logged_in_account
-          # flash[:notice] = "Welcome back #{session[:current_account]['name']}!"
           routing.redirect '/'
         rescue StandardError
           flash[:error] = '無法登入'

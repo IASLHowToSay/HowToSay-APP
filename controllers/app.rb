@@ -36,7 +36,7 @@ module Howtosay
 
       # GET /
       routing.root do
-        unless @current_account.nil?
+        if @current_account
           view 'home', locals: { :current_account=> @current_account }
         else
           routing.redirect 'auth/login'
