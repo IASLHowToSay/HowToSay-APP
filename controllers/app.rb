@@ -23,8 +23,8 @@ module Howtosay
 
     route do |routing|
       # routing begins
-      # @current_account = session[:current_account]
-      @current_account = SecureSession.new(session).get(:current_account)
+      @current_account = session[:current_account]
+      #@current_account = SecureSession.new(session).get(:current_account)
       puts "-current account : #{@current_account}"
     
       routing.public

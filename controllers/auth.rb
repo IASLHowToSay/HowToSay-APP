@@ -25,7 +25,7 @@ module Howtosay
           # flash[:notice] = "Welcome back #{session[:current_account]['name']}!"
           routing.redirect '/'
         rescue StandardError
-          flash[:error] = 'Username and password did not match our records'
+          flash[:error] = '無法登入'
           routing.redirect @login_route
         end
       end
@@ -45,7 +45,7 @@ module Howtosay
           flash[:notice] = "恭喜 #{routing.params['name']} 註冊成功!"
           routing.redirect 'login'
         rescue StandardError
-          flash[:error] = 'Username and password cant create'
+          flash[:error] = '無法註冊'
           routing.redirect 'register'
         end
       end
