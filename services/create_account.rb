@@ -17,10 +17,7 @@ class CreateAccount
                 email: email,
                 password: password,
                 organization_id: 1,
-                teacher: false,
-                can_rewrite: true,
-                can_grade: true,
-                admin: true
+                teacher: teacher
             }
 
     response = HTTP.post(

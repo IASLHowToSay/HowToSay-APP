@@ -29,9 +29,11 @@ module Howtosay
         end
       end
 
+      # GET /auth/register
       routing.is 'register' do
         routing.get do
-          view "auth/register", layout: { template: '/layout/layout_auth/main' }    
+          info = GetRegisterpage.new(App.config).call()
+          view "auth/register", layout: { template: '/layout/layout_auth/main' },locals: { :register_info=> info }    
         end
 
         routing.post do

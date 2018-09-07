@@ -28,7 +28,8 @@ body class="auth_background"
               span class="input-group-addon" for="inputGroupSelect01" 單位
               select class="selectpicker form-control" name='organization_id' id="inputGroupSelect01"
                 option 您的單位
-                option value="1" 中研院IASL
+                - register_info.each do |organization|
+                  option value="#{organization['id']}" #{organization['name']}
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" for="inputGroupSelect01" 角色
