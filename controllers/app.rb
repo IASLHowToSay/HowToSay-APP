@@ -37,7 +37,9 @@ module Howtosay
       # GET /
       routing.root do
         if @current_account
-          view 'home', locals: { :current_account=> @current_account }
+          info = GetHomepage.new(App.config,@current_account["email"]).call()
+          puts info
+          view 'home', locals: { :home_info=> info }
         else
           routing.redirect 'auth/login'
         end
