@@ -46,7 +46,8 @@ module Howtosay
           flash[:notice] = "恭喜 #{routing.params['name']} 註冊成功!"
           routing.redirect 'login'
         rescue StandardError
-          flash[:error] = '無法註冊'
+          puts routing.params['message']
+          flash[:error] = "註冊失敗"
           routing.redirect 'register'
         end
       end
