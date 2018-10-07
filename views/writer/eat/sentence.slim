@@ -1,37 +1,38 @@
 body class="eat_background"
-  h3 style="color:white;margin-left:15px" 99/100
+  h3 style="color:white;margin-left:15px" #{sentence_info['sequence']}/#{sentence_info['total']}
 div class="row" style="margin-top:40px"
   div class="input-group"
     span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
-    textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="請問大家去日本喝過最好喝的鮮奶、茶飲、乳酸飲料是哪種？" readonly="readonly"
-div class="row" style="margin-top:10px"
-  h3 style="font-size:20px;color:black;" 在「食」中屬於什麼小類別？
-div class="row"
-  div class="col-sm-2"
-  div class="col-sm-8"
-    div class="form-group"
-      div class="input-group"
-        span class="input-group-addon" for="inputGroupSelect01" 小類別
-        select class="selectpicker form-control" id="inputGroupSelect01"
-          option value="1" 日式
-          option value="2" 中式
-          option value="3" 台式
-          option value="4" 美式
-  div class="col-sm-2"
-div class="row"
-  h3 style="margin-top:10px;font-size:20px;color:black;" 問句還可以用什麼方式表達：
-div class="row" 
-  div class="input-group"
-    span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說 1：
-    input class="form-control" style="font-size: 20px;"
-  div class="input-group"
-    span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說 2：
-    input class="form-control" style="font-size: 20px;"
-div class="row" style="margin-top:50px;float:right;"
-  div class="col-sm-10"
-  div class="col-sm-2" style="text-align:right"
-    div class="hero-button text-center" onclick="javascript:alert('恭喜您，完成了！');location.href='/'"
-      a href="#" class="btn btn-lg" style="background-color:#ff910a;color: white;"
-        i class="icon-apple icon-3x pull-left"
-        span style="font-size:big;" 下一題
+    textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="#{sentence_info['question']['content']}" readonly="readonly"
+form method='post' action='/eat/sentence' id='form-login'
+  div class="row" style="margin-top:10px"
+    h3 style="font-size:20px;color:black;" 在「食」中屬於什麼小類別？
+  div class="row"
+    div class="col-sm-2"
+    div class="col-sm-8"
+      div class="form-group"
+        div class="input-group"
+          span class="input-group-addon" for="inputGroupSelect01" 小類別
+          select class="selectpicker form-control" name="detail" id="inputGroupSelect01"
+            - sentence_info['details'].each do |detail|
+              option value="#{detail['id']}" #{detail['name']} #{detail['description']}
+    div class="col-sm-2"
+  div class="row"
+    h3 style="margin-top:10px;font-size:20px;color:black;" 問句還可以用什麼方式表達：
+    input type="text" name="question_id" style="display:none;" value="#{sentence_info['question']['id']}"
+  div class="row" 
+    div class="input-group"
+      span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說：
+      input class="form-control" name="sentence" style="font-size: 20px;"
+    / div class="input-group"
+    /   span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說 2：
+    /   input class="form-control" style="font-size: 20px;"
+  div class="row" style="margin-top:50px;float:right;"
+    div class="col-sm-10"
+    div class="col-sm-2" style="text-align:right"
+      button class="hero-button text-center" style="background-color:#ff910a;color: white;" type="submit" class="btn btn-lg" 下一題
+      / div class="hero-button text-center" onclick="javascript:alert('恭喜您，完成了！');location.href='/'"
+      /   a href="#" class="btn btn-lg" style="background-color:#ff910a;color: white;"
+      /     i class="icon-apple icon-3x pull-left"
+      /     span style="font-size:big;" 下一題
 

@@ -1,13 +1,13 @@
 body class="eat_background"
   
   div class="row"
-    h3 style="color:white;margin-left:15px"   99/100
+    h3 style="color:white;margin-left:15px"   #{label_info['sequence']}/#{label_info['total']}
   div class="row" style="margin-top:100px"
     div class="input-group"
       span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
-      textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="請問大家去日本喝過最好喝的鮮奶、茶飲、乳酸飲料是哪種？" readonly="readonly"
+      textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="#{label_info['question']['content']}" readonly="readonly"
   div class="row" style="margin-top:40px"
     div style="font-size:20px" 問句是否與「食」相關？
-  div class="row" style="margin-top:40px"
+  div class="row" style="margin-top:40px" 
     button style="margin-right:5px;font-size:20px;" class="btn btn-primary" onclick="javascript:location.href='sentence'" 是
     button style="margin-left:5px;font-size:20px;" class="btn btn-danger" 否
