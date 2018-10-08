@@ -16,7 +16,7 @@ class CreateAccount
     message = { name: name,
                 email: email,
                 password: password,
-                organization_id: 1,
+                organization_id: organization_id,
                 teacher: teacher
             }
 

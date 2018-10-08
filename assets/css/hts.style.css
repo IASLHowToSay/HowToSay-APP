@@ -101,9 +101,61 @@ div.fun_image {
     height: 100%;
 }
 
+/*衣背景*/
+.cloth_background{
+    background-image: url(/clothBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
 /*食背景*/
 .eat_background{
     background-image: url(/eatBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+
+
+/*住背景*/
+.live_background{
+    background-image: url(/liveBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+/*行背景*/
+.traffic_background{
+    background-image: url(/trafficBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+/*育背景*/
+.education_background{
+    background-image: url(/educationBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+/*樂背景*/
+.fun_background{
+    background-image: url(/funBG.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

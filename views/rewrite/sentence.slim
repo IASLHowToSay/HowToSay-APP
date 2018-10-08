@@ -19,6 +19,7 @@ form method='post' action='/eat/sentence' id='form-login'
     div class="col-sm-2"
   div class="row"
     h3 style="margin-top:10px;font-size:20px;color:black;" 問句還可以用什麼方式表達：
+    input type="text" name="task_id" style="display:none;" value="#{sentence_info['task_id']}"
     input type="text" name="question_id" style="display:none;" value="#{sentence_info['question']['id']}"
   div class="row" 
     div class="input-group"
@@ -30,7 +31,10 @@ form method='post' action='/eat/sentence' id='form-login'
   div class="row" style="margin-top:50px;float:right;"
     div class="col-sm-10"
     div class="col-sm-2" style="text-align:right"
-      button class="hero-button text-center" style="background-color:#ff910a;color: white;" type="submit" class="btn btn-lg" 下一題
+      - unless sentence_info['sequence'] == sentence_info['total']
+        button class="hero-button text-center" style="background-color:#ff910a;color: white;" type="submit" class="btn btn-lg" 下一題
+      - else
+        button class="hero-button text-center" style="background-color:#ff910a;color: white;" onclick="javascript:alert('恭喜您，完成了！');location.href='/'" type="submit" class="btn btn-lg" 下一題
       / div class="hero-button text-center" onclick="javascript:alert('恭喜您，完成了！');location.href='/'"
       /   a href="#" class="btn btn-lg" style="background-color:#ff910a;color: white;"
       /     i class="icon-apple icon-3x pull-left"

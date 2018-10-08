@@ -10,10 +10,10 @@ class SaveAnswer
     @config = config
   end
 
-  def call(account_id:, question_id:, detail_id:, sentence:)
+  def call(account_id, task_id, question_id, detail_id, sentence)
     
-
     message = { account_id: account_id,
+                task_id: task_id,
                 question_id: question_id,
                 detail_id: detail_id,
                 sentence: sentence
@@ -24,6 +24,7 @@ class SaveAnswer
       json: message
     )
 
-    raise InvalidSaveAnswer unless response.code == 201
+    response.code == 201 ? response : (raise InvalidSaveAnswer)
+    
   end
 end
