@@ -1,12 +1,12 @@
-body class="eat_background"
+body class="#{sentence_info['background']}"
   h3 style="color:white;margin-left:15px" #{sentence_info['sequence']}/#{sentence_info['total']}
 div class="row" style="margin-top:40px"
   div class="input-group"
     span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
     textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="#{sentence_info['question']['content']}" readonly="readonly"
-form method='post' action='/eat/sentence' id='form-login'
+form method='post' action='/rewrite/#{sentence_info['question']['cate']['id']}/sentence' id='form-login'
   div class="row" style="margin-top:10px"
-    h3 style="font-size:20px;color:black;" 在「食」中屬於什麼小類別？
+    h3 style="font-size:20px;color:black;" 在「#{sentence_info['question']['cate']['name']}」中屬於什麼小類別？
   div class="row"
     div class="col-sm-2"
     div class="col-sm-8"

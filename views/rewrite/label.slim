@@ -1,4 +1,4 @@
-body class="traffic_background"
+body class="#{label_info["background"]}"
   
   div class="row"
     h3 style="color:white;margin-left:15px"   #{label_info['sequence']}/#{label_info['total']}
@@ -7,7 +7,7 @@ body class="traffic_background"
       span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
       textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="#{label_info['question']['content']}" readonly="readonly"
   div class="row" style="margin-top:40px"
-    div style="font-size:20px" 問句是否與「食」相關？
+    div style="font-size:20px" 問句是否與「#{label_info["question"]["cate"]["name"]}」相關？
   div class="row" style="margin-top:40px" 
     button style="margin-right:5px;font-size:20px;" class="btn btn-primary" onclick="javascript:location.href='sentence'" 是
     button style="margin-left:5px;font-size:20px;" class="btn btn-danger" 否

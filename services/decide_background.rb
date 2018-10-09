@@ -12,7 +12,7 @@ class DecideBackground
     if @cate == "食"
       @info["background"] = "eat_background"
     elsif @cate == "衣"
-      @info["background"] = "cloths_background"
+      @info["background"] = "cloth_background"
     elsif @cate == "住"
       @info["background"] = "live_background"
     elsif @cate == "行"

@@ -101,16 +101,6 @@ div.fun_image {
     height: 100%;
 }
 
-/*衣背景*/
-.cloth_background{
-    background-image: url(/clothBG.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-color: #ffecd4;
-    background-size: contain;
-}
-
 /*食背景*/
 .eat_background{
     background-image: url(/eatBG.jpg);
@@ -121,6 +111,15 @@ div.fun_image {
     background-size: contain;
 }
 
+/*衣背景*/
+.cloth_background{
+    background-image: url(/clothBG.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
 
 
 /*住背景*/

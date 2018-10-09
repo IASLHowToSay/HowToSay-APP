@@ -16,9 +16,6 @@ module Howtosay
                 routing.redirect '../../'
               end
               lable_info = DecideBackground.new(info).call()
-              puts '------------'
-              puts lable_info
-              puts '------------'
               view '/rewrite/label', layout: { template: '/layout/layout_task/main' },locals: { :label_info=> lable_info }  
             else
               routing.redirect '../../auth/login'
@@ -30,8 +27,9 @@ module Howtosay
         routing.on 'sentence' do
           routing.get do
             unless @current_account.nil?
-              info = GetSentencepage.new(App.config, @current_account["email"], 1).call()
-              view 'writer/eat/sentence', layout: { template: '/layout/layout_task/main' },locals: { :sentence_info=> info }
+              info = GetSentencepage.new(App.config, @current_account["email"], cate_id).call()
+              sentence_info = DecideBackground.new(info).call()
+              view '/rewrite/sentence', layout: { template: '/layout/layout_task/main' },locals: { :sentence_info=> sentence_info }
             else
               routing.redirect '../auth/login'
             end 
