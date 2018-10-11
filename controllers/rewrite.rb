@@ -14,7 +14,7 @@ module Howtosay
             unless @current_account.nil?
               info = GetLabelpage.new(App.config, @current_account["email"], cate_id).call()
               if info.nil?
-                routing.redirect '../../'
+                routing.redirect '/'
               end
               lable_info = CSSBackground.new(info).call()
               view '/rewrite/label', layout: { template: '/layout/layout_task/main' },locals: { :label_info=> lable_info }  
