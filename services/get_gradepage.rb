@@ -2,8 +2,8 @@
 
 require 'http'
 
-# Returns all projects belonging to an account
-class GetSentencepage
+# Returns grade page
+class GetGradepage
   def initialize(config, email, cate_id)
     @config = config
     @email = email
@@ -11,7 +11,8 @@ class GetSentencepage
   end
 
   def call()
-    response = HTTP.get("#{@config.API_URL}/rewrite/#{@email}/#{@cate_id}/sentence")
+    response = HTTP.get("#{@config.API_URL}/grade/#{@email}/#{@cate_id}")
+    puts response.parse
     response.code == 200 ? response.parse : nil
   end
 end

@@ -9,5 +9,12 @@ body class="#{label_info["background"]}"
   div class="row" style="margin-top:40px"
     div style="font-size:20px" 問句是否與「#{label_info["question"]["cate"]["name"]}」相關？
   div class="row" style="margin-top:40px" 
-    button style="margin-right:5px;font-size:20px;" class="btn btn-primary" onclick="javascript:location.href='sentence'" 是
-    button style="margin-left:5px;font-size:20px;" class="btn btn-danger" 否
+    button style="margin-right:5px;font-size:20px;" class="btn btn-primary" onclick="javascript:location.href='/rewrite/#{label_info['cate_id']}/sentence'" 是
+    form method='post' action='/rewrite/#{label_info['question']['cate']['id']}/label/skip' id='form-login'
+      input type="text" name="task_id" style="display:none;" value="#{label_info['task_id']}"
+      input type="text" name="account_id" style="display:none;" value="#{label_info['account_id']}"
+      input type="text" name="question_id" style="display:none;" value="#{label_info['question']['id']}"
+      - unless label_info['sequence'] == label_info['total']
+        button style="margin-left:5px;font-size:20px;" type="submit" class="btn btn-danger" 否
+      - else
+        button style="margin-left:5px;font-size:20px;" type="submit"  class="btn btn-danger" onclick="javascript:alert('恭喜您，完成了！');location.href='/'" 否

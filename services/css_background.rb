@@ -2,7 +2,7 @@
 
 
 # Returns a hash which has background attr
-class DecideBackground
+class CSSBackground
   def initialize(info)
     @info = info
     @cate = info["question"]["cate"]["name"]

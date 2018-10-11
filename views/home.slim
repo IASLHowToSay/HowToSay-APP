@@ -5,34 +5,19 @@ body class="home_background"
         img class="circle-square" src="/teacher.png" style="width:50px;height:50px;float:left;margin:5px;"
       div class="bulletin col-sm-2" style="height:60px;"
         p style="color:black;"
-          == home_info['user']
+          == home_info['user']['name']
       div class="bulletin col-sm-9" style="height:60px;" 
         p style="color:black;"
           == home_info['description']
     tr
-      th
-        div class="eat_progs" <br> #{home_info['cates'][0]['name']} <br> #{home_info['cates'][0]['progress']}
-        a href="/rewrite/#{home_info['cates'][0]['id']}/label"
-          div class="eat_image"
-      th
-        div class="cloth_progs" <br> #{home_info['cates'][1]['name']} <br> #{home_info['cates'][1]['progress']}
-        a href="/rewrite/#{home_info['cates'][1]['id']}/label"  
-          div class="cloth_image"
-      th
-        div class="live_progs" <br> #{home_info['cates'][2]['name']} <br> #{home_info['cates'][2]['progress']}
-        a href="/rewrite/#{home_info['cates'][2]['id']}/label"  
-          div class="live_image"
-      th
-        div class="traffic_progs" <br> #{home_info['cates'][3]['name']} <br> #{home_info['cates'][3]['progress']}
-        a href="/rewrite/#{home_info['cates'][3]['id']}/label"  
-          div class="traffic_image"
-      th
-        div class="education_progs" <br> #{home_info['cates'][4]['name']} <br> #{home_info['cates'][4]['progress']}
-        a href="/rewrite/#{home_info['cates'][4]['id']}/label"
-          div class="education_image"
-      th
-        div class="fun_progs" <br> #{home_info['cates'][5]['name']} <br> #{home_info['cates'][5]['progress']}
-        a href="/rewrite/#{home_info['cates'][5]['id']}/label"  
-          div class="fun_image"
+      - home_info['cates'].each do |cate|
+        th
+          div class="#{cate['css_progs']}" <br> #{cate['name']} <br> #{cate['progress']}
+          - if home_info['user']['can_rewrite'] && !home_info['user']['can_grade']
+            a href="/rewrite/#{cate['id']}/label"
+              div class="#{cate['css_img']}"
+          - else
+            a href="/grade/#{cate['id']}"
+              div class="#{cate['css_img']}"
 
     

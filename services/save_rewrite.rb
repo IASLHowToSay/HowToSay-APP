@@ -3,8 +3,8 @@
 require 'http'
 
 # Returns an authenticated user, or nil
-class SaveAnswer
-  class InvalidSaveAnswer < StandardError; end
+class SaveRewrite
+  class InvalidSaveRewrite < StandardError; end
 
   def initialize(config)
     @config = config
@@ -24,7 +24,7 @@ class SaveAnswer
       json: message
     )
 
-    response.code == 201 ? response : (raise InvalidSaveAnswer)
+    response.code == 201 ? response : (raise InvalidSaveRewrite)
     
   end
 end
