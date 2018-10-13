@@ -5,7 +5,11 @@ require 'http'
 module Howtosay
   # Returns an authenticated user, or nil
   class AuthenticateAccount
-    class UnauthorizedError < StandardError; end
+    class UnauthorizedError < StandardError;
+      def message
+        '帳號或密碼有錯誤！'
+      end
+    end
 
     def initialize(config)
       @config = config
@@ -14,8 +18,7 @@ module Howtosay
     def call(email:, password:)
       response = HTTP.post("#{@config.API_URL}/accounts/authenticate",
                            json: { email:email, password:password })
-      puts response.code
-      raise(UnauthorizedError) unless response.code == 200
+      raise(UnauthorizedError) unless response.code == 201
       response.parse
     end
   end

@@ -10,34 +10,83 @@ body class="auth_background"
     div class="row" style="margin-top:25px;"
       div class="col-sm-4"
       div class="col-sm-4"
-        form method='post' action='register' id='form-login'
+        form method='post' name="registerform" action='register' id='form-login' onsubmit="return registercheck();"
+          p id="name-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" 名字
               input class="form-control" type='text' name='name' id='input-username' 
+          p id="email-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" 信箱
-              input class="form-control" type='text' name='email' id='input-username' 
+              input class="form-control" type="email" autocomplet="off" name='email' id='input-username'
+          p id="password-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" 密碼
               input class="form-control" type='password' name='password' id='input-password'
+          p id="organization-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" for="inputGroupSelect01" 單位
               select class="selectpicker form-control" name='organization_id' id="inputGroupSelect01"
-                option 您的單位
+                option value=-1 請選擇
                 - register_info.each do |organization|
                   option value="#{organization['id']}" #{organization['name']}
+          p id="teacher-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
           div class="form-group"
             div class="input-group"
               span class="input-group-addon" for="inputGroupSelect01" 角色
               select class="selectpicker form-control" name='teacher' id="inputGroupSelect01"
-                option 您的角色
-                option value="0" 學生
-                option value="1" 老師
+                option value=-1 請選擇
+                option value=0 學生
+                option value=1 老師
           div class="form-group"
-            button type='submit' id='button-login' value='' class="btn btn-primary btn-block" 註冊
+            button type='submit' id='button-register' value='' class="btn btn-primary btn-block" 註冊
       div class="col-sm-4"
+
+javascript:
+  
+   
+  function registercheck(){
+    if(document.registerform.name.value==''){
+      document.getElementById("name-alert").style.display="block";
+      document.getElementById("name-alert").style.color="red";
+      document.getElementById("name-alert").innerHTML="名稱不可以為空白";
+    }else{
+      document.getElementById("name-alert").style.display="none";
+    }
+    if(document.registerform.email.value==''){
+      document.getElementById("email-alert").style.display="block";
+      document.getElementById("email-alert").style.color="red";
+      document.getElementById("email-alert").innerHTML="信箱不可以為空白";
+    }else{
+      document.getElementById("email-alert").style.display="none";
+    }
+    if(document.registerform.password.value.length < 8){
+      document.getElementById("password-alert").style.display="block";
+      document.getElementById("password-alert").style.color="red";
+      document.getElementById("password-alert").innerHTML="密碼不可以少於8個字元";
+    }else{
+      document.getElementById("password-alert").style.display="none";
+    }
+    if(document.registerform.organization_id.value==-1){
+      document.getElementById("organization-alert").style.display="block";
+      document.getElementById("organization-alert").style.color="red";
+      document.getElementById("organization-alert").innerHTML="請選擇組織";
+    }else{
+      document.getElementById("organization-alert").style.display="none";
+    }
+    if(document.registerform.teacher.value==-1){
+      document.getElementById("teacher-alert").style.display="block";
+      document.getElementById("teacher-alert").style.color="red";
+      document.getElementById("teacher-alert").innerHTML="請選擇組織";
+    }else{
+      document.getElementById("teacher-alert").style.display="none";
+    }
+    if(document.registerform.name.value=='' || document.registerform.email.value=='' || (document.registerform.password.value.length < 8) || document.registerform.organization_id.value==-1 || document.registerform.teacher.value==-1){
+      return false
+    }
+  }
 

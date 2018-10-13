@@ -1,0 +1,11 @@
+# Logfile created on 2018-10-13 15:07:31 +0800 by logger.rb/61378
+W, [2018-10-13T15:07:37.039727 #22797]  WARN -- : 用戶 victorlin12345@gmail.com 帳密有誤！
+I, [2018-10-13T15:08:37.940822 #22797]  INFO -- : 用戶 victorlin12345@gmail.com 登入
+W, [2018-10-13T15:10:28.008589 #22864]  WARN -- : 用戶 victorlin12345@gmail.com 帳密有誤！
+I, [2018-10-13T15:10:39.349645 #22864]  INFO -- : 用戶 victorlin12345@gmail.com 登入
+W, [2018-10-13T15:15:33.035989 #22946]  WARN -- : 用戶 victorlin12345@gmail.com 帳號或密碼有錯誤！
+W, [2018-10-13T15:21:42.210355 #23065]  WARN -- : 此 victorlin12345@gmail.com 已有人註冊！請使用其他 email
+W, [2018-10-13T15:23:58.093315 #23125]  WARN -- : 用戶 victorlin12345@gmail.com 已有人註冊！請使用其他 email
+W, [2018-10-13T15:31:19.969346 #23231]  WARN -- : 用戶 victorlin12345@gmail.com 已有人註冊！請使用其他 email
+W, [2018-10-13T15:31:54.639698 #23258]  WARN -- : 用戶 victorlin12345@gmail.com 已被註冊！請使用其他email
+I, [2018-10-13T15:32:39.367363 #23258]  INFO -- : 丹尼 註冊成功!

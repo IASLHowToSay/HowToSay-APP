@@ -10,7 +10,6 @@ class GetRegisterpage
 
   def call()
     response = HTTP.get("#{@config.API_URL}/accounts/register")
-    puts response.parse
     response.code == 200 ? response.parse : nil
   end
 end

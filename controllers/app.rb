@@ -3,6 +3,7 @@
 require 'roda'
 require 'slim'
 require 'slim/include'
+require 'logger'
 
 module Howtosay
   # Base class for HowToSay Web Application
@@ -24,11 +25,12 @@ module Howtosay
     route do |routing|
       # routing begins
       #@current_account = session[:current_account]
-      puts "-session: #{session}"
-      @current_account = SecureSession.new(session).get(:current_account)
       
-      puts "-current account : #{@current_account}"
-    
+      @logger = Logger.new('howtosay.log', 'daily')
+      @logger.level = Logger::DEBUG
+
+      @current_account = SecureSession.new(session).get(:current_account)
+
       routing.public
       routing.assets
       # 若 routing 的地方不在此file跑到 routing.multi_route 就會接到別的file去
@@ -37,6 +39,7 @@ module Howtosay
       # GET /
       routing.root do
         if @current_account
+          @logger.info("用戶 #{@current_account["email"]} 登入")
           info = GetHomepage.new(App.config,@current_account["email"]).call()
           home_info = CSSHome.new(info).call()
           view 'home', locals: { :home_info=> home_info }
