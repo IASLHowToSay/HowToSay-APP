@@ -14,10 +14,16 @@ body class="home_background"
         th
           div class="#{cate['css_progs']}" <br> #{cate['name']} <br> #{cate['progress']}
           - if home_info['user']['can_rewrite'] && !home_info['user']['can_grade']
-            a href="/rewrite/#{cate['id']}/label"
+            - if cate['progress'] != '恭喜完成' && cate['progress'] != '不需作答'
+              a href="/rewrite/#{cate['id']}/label"
+                div class="#{cate['css_img']}"
+            - else
               div class="#{cate['css_img']}"
           - else
-            a href="/grade/#{cate['id']}"
+            - if cate['progress'] != '恭喜完成' && cate['progress'] != '不需作答'
+              a href="/grade/#{cate['id']}"
+                div class="#{cate['css_img']}"
+            - else
               div class="#{cate['css_img']}"
 
     

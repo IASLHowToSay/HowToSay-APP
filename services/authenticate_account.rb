@@ -18,7 +18,7 @@ module Howtosay
     def call(email:, password:)
       response = HTTP.post("#{@config.API_URL}/accounts/authenticate",
                            json: { email:email, password:password })
-      raise(UnauthorizedError) unless response.code == 201
+      raise(UnauthorizedError) unless response.code == 200
       response.parse
     end
   end

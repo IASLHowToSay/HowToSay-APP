@@ -46,27 +46,34 @@ module Howtosay
         
         # POST /auth/register
         routing.post do
-          account = CreateAccount.new(App.config).call(
+
+          CreateAccount.new(App.config).call(
             name: routing.params['name'],
             email: routing.params['email'],
             password: routing.params['password'],
             organization_id: routing.params['organization_id'],
             teacher: routing.params['teacher'])
+          
           flash[:notice] = "恭喜 #{routing.params['name']} 註冊成功!"
+
           @logger.info("用戶 #{routing.params['email']} 註冊成功!")
           @logger.close
+
           routing.redirect 'login'
+        
         rescue CreateAccount::InvalidAccount => error
+          
           @logger.warn("#{error.message}")
           @logger.close
+
           flash[:error] = error.message
+
           routing.redirect 'register'
         end
       end
 
       routing.on 'logout' do
         routing.get do
-          # session[:current_account] = nil
           SecureSession.new(session).delete(:current_account)
           routing.redirect @login_route
         end
