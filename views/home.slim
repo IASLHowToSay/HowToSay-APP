@@ -2,13 +2,19 @@ body class="home_background"
   table style="width:100%"
     tr
       div class="bulletin col-sm-1" style="height:60px;"
-        img class="circle-square" src="/teacher.png" style="width:50px;height:50px;float:left;margin:5px;"
+        - if home_info['teacher']
+          img class="circle-square" src="/teacher.png" style="width:50px;height:50px;float:left;margin:5px;"
+        - else
+          img class="circle-square" src="/student.jpg" style="width:50px;height:50px;float:left;margin:5px;"
       div class="bulletin col-sm-2" style="height:60px;"
-        p style="color:black;"
+        p style="color:black;margin:0px;padding-top: 4px;font-size: 15px;"
+          == home_info['user']['organization']['name']
+        p style="color:black;margin:0px;"
           == home_info['user']['name']
-      div class="bulletin col-sm-9" style="height:60px;" 
-        p style="color:black;"
-          == home_info['description']
+      div class="bulletin col-sm-7" style="height:60px;" 
+        p style="color:black;padding:15px;margin:0px;" 歡迎來到 How to say，操作方式請看說明！
+      div class="bulletin col-sm-2" style="height:60px;"
+        button class="hero-button text-center" style="background-color:#4d8eb4;color: white;padding:15px;margin: 4px;" class="btn" onclick="alert('#{home_info['description']}');" 說明
     tr
       - home_info['cates'].each do |cate|
         th
@@ -25,5 +31,3 @@ body class="home_background"
                 div class="#{cate['css_img']}"
             - else
               div class="#{cate['css_img']}"
-
-    

@@ -17,7 +17,7 @@ module Howtosay
             grade_info = CSSBackground.new(info).call()
             view 'grade/grade', layout: { template: '/layout/layout_task/main' },locals: { :grade_info=> grade_info }
           else
-            routing.redirect '../auth/login'
+            routing.redirect '../../auth/login'
           end
         end
        

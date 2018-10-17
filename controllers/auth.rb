@@ -72,6 +72,49 @@ module Howtosay
         end
       end
 
+      routing.is 'forgetpassword' do
+        # GET /auth/forgetpassword
+        routing.get do
+          view "auth/forget_password", layout: { template: '/layout/layout_auth/main' }
+        end
+        
+        # POST /auth/forgetpassword
+        routing.post do
+          email = routing.params['email']
+          response_data = VerifyRecoveryEmail.new(App.config).call(email)
+          flash[:notice] = response_data['message']
+          routing.redirect '/'
+        rescue StandardError => error
+          puts "ERROR SENDING RECOVERY EMAIL: #{error.inspect}"
+          # puts error.backtrace
+          flash[:error] = ' 信箱寄送失敗'
+          routing.redirect 'forgetpassword'
+        end
+
+      end
+
+      routing.on 'resetpassword' do
+        routing.on String do |password_recovery_token| 
+          # GET /auth/resetpassword/[password_recovery_token]
+          routing.get do
+            flash[:notice] = '請填入新的密碼'
+            info = {token: password_recovery_token}
+            view "auth/reset_password", layout: { template: '/layout/layout_auth/main' },locals: { :token_info=> info }
+          end
+          # POST /auth/resetpassword/[password_recovery_token]
+          routing.post do
+            newpassword = routing.params['newpassword']
+            token = routing.params['token']
+            ResetPassword.new(App.config).call(newpassword, token)
+            flash[:notice] = '更新密碼成功！'
+            routing.redirect '/'
+          rescue StandardError => error
+            flash[:error] = ' 更新密碼失敗'
+            routing.redirect '../forgetpassword'
+          end
+        end
+      end
+
       routing.on 'logout' do
         routing.get do
           SecureSession.new(session).delete(:current_account)

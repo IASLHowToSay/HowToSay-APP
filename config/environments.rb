@@ -33,10 +33,14 @@ module Howtosay
     end
 
     configure :production do
-      use Rack::SslEnforcer, :hsts => true
+      
+      use Rack::Session::Pool,
+      expire_after: ONE_MONTH
 
-      use Rack::Session::Redis,
-          expire_after: ONE_MONTH, redis_server: App.config.REDIS_URL
+      # use Rack::SslEnforcer, :hsts => true
+
+      # use Rack::Session::Redis,
+      #     expire_after: ONE_MONTH, redis_server: App.config.REDIS_URL
     end
 
     configure :development, :test do
