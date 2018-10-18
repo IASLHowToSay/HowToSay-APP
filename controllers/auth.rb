@@ -18,21 +18,23 @@ module Howtosay
 
         # POST /auth/login
         routing.post do
-          logged_in_account = AuthenticateAccount.new(App.config).call(
-            email: routing.params['email'],
-            password: routing.params['password'])
-          SecureSession.new(session).set(:current_account, logged_in_account)
-          routing.redirect '/'
-        rescue AuthenticateAccount::UnauthorizedError => error
-          @logger.warn("用戶 #{routing.params['email']} #{error.message}")
-          @logger.close
-          flash[:error] = error.message
-          routing.redirect @login_route
-        rescue StandardError => error
-          @logger.warn("程式錯誤 #{error.message}")
-          @logger.close
-          flash[:error] = error.message
-          routing.redirect @login_route
+          begin
+            logged_in_account = AuthenticateAccount.new(App.config).call(
+              email: routing.params['email'],
+              password: routing.params['password'])
+            SecureSession.new(session).set(:current_account, logged_in_account)
+            routing.redirect '/'
+          rescue AuthenticateAccount::UnauthorizedError => error
+            @logger.warn("用戶 #{routing.params['email']} #{error.message}")
+            @logger.close
+            flash[:error] = error.message
+            routing.redirect @login_route
+          rescue StandardError => error
+            @logger.warn("程式錯誤 #{error.message}")
+            @logger.close
+            flash[:error] = error.message
+            routing.redirect @login_route
+          end
         end
       end
 
@@ -46,29 +48,30 @@ module Howtosay
         
         # POST /auth/register
         routing.post do
-
-          CreateAccount.new(App.config).call(
-            name: routing.params['name'],
-            email: routing.params['email'],
-            password: routing.params['password'],
-            organization_id: routing.params['organization_id'],
-            teacher: routing.params['teacher'])
+          begin
+            CreateAccount.new(App.config).call(
+              name: routing.params['name'],
+              email: routing.params['email'],
+              password: routing.params['password'],
+              organization_id: routing.params['organization_id'],
+              teacher: routing.params['teacher'])
           
-          flash[:notice] = "恭喜 #{routing.params['name']} 註冊成功!"
+            flash[:notice] = "恭喜 #{routing.params['name']} 註冊成功!"
 
-          @logger.info("用戶 #{routing.params['email']} 註冊成功!")
-          @logger.close
+            @logger.info("用戶 #{routing.params['email']} 註冊成功!")
+            @logger.close
 
-          routing.redirect 'login'
+            routing.redirect 'login'
         
-        rescue CreateAccount::InvalidAccount => error
-          
-          @logger.warn("#{error.message}")
-          @logger.close
+          rescue CreateAccount::InvalidAccount => error
+           
+            @logger.warn("#{error.message}")
+            @logger.close
 
-          flash[:error] = error.message
-
-          routing.redirect 'register'
+            flash[:error] = error.message
+  
+            routing.redirect 'register'
+          end
         end
       end
 
@@ -80,17 +83,18 @@ module Howtosay
         
         # POST /auth/forgetpassword
         routing.post do
-          email = routing.params['email']
-          response_data = VerifyRecoveryEmail.new(App.config).call(email)
-          flash[:notice] = response_data['message']
-          routing.redirect '/'
-        rescue StandardError => error
-          puts "ERROR SENDING RECOVERY EMAIL: #{error.inspect}"
-          # puts error.backtrace
-          flash[:error] = ' 信箱寄送失敗'
-          routing.redirect 'forgetpassword'
+          begin
+            email = routing.params['email']
+            response_data = VerifyRecoveryEmail.new(App.config).call(email)
+            flash[:notice] = response_data['message']
+            routing.redirect '/'
+          rescue StandardError => error
+            puts "ERROR SENDING RECOVERY EMAIL: #{error.inspect}"
+            # puts error.backtrace
+            flash[:error] = ' 信箱寄送失敗'
+            routing.redirect 'forgetpassword'
+          end
         end
-
       end
 
       routing.on 'resetpassword' do
@@ -103,14 +107,16 @@ module Howtosay
           end
           # POST /auth/resetpassword/[password_recovery_token]
           routing.post do
-            newpassword = routing.params['newpassword']
-            token = routing.params['token']
-            ResetPassword.new(App.config).call(newpassword, token)
-            flash[:notice] = '更新密碼成功！'
-            routing.redirect '/'
-          rescue StandardError => error
-            flash[:error] = ' 更新密碼失敗'
-            routing.redirect '../forgetpassword'
+            begin
+              newpassword = routing.params['newpassword']
+              token = routing.params['token']
+              ResetPassword.new(App.config).call(newpassword, token)
+              flash[:notice] = '更新密碼成功！'
+              routing.redirect '/'
+            rescue StandardError => error
+              flash[:error] = ' 更新密碼失敗'
+              routing.redirect '../forgetpassword'
+            end
           end
         end
       end
