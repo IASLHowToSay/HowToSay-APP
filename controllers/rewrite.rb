@@ -56,7 +56,8 @@ module Howtosay
             account_id = @current_account["id"]
             task_id = routing.params['task_id']
             question_id = routing.params['question_id']
-            detail_id = routing.params['detail']
+            detail_id = routing.params['detail'].split('@')[0]
+            puts detail_id
             sentence = routing.params['sentence']
             response = SaveRewrite.new(App.config).call(account_id, task_id, question_id, detail_id, sentence)
             routing.redirect 'label'

@@ -2,11 +2,14 @@
 development:
   API_URL: http://localhost:9292/api/v1
   APP_URL: http://localhost:3000
+  MACHINE_URL: http://140.109.19.213:8080
 
 test:
   API_URL: http://localhost:9292/api/v1
   APP_URL: http://localhost:3000
+  MACHINE_URL: http://140.109.19.213:8080
 
 production:
   API_URL: https://howtosay-api.herokuapp.com/api/v1
   APP_URL: https://howtosay-app.herokuapp.com
+  MACHINE_URL: http://140.109.19.213:8080

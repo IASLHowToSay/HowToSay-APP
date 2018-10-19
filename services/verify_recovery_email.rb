@@ -14,7 +14,8 @@ module Howtosay
       password_recovery_data = { email: email } 
       password_recovery_token = SecureMessage.encrypt(password_recovery_data)
       password_recovery_data['reset_url'] =
-        "#{@config.APP_URL}/auth/resetpassword/#{password_recovery_token}"
+        "#{@config.MACHINE_URL}/auth/resetpassword/#{password_recovery_token}"
+      puts 
       response = HTTP.post("#{@config.API_URL}/accounts/forgetpassword",
                            json: password_recovery_data)
       raise(VerifyRecoveryEmailError) unless response.code == 202

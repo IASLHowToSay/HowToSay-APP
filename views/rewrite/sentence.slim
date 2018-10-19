@@ -1,22 +1,24 @@
 body class="#{sentence_info['background']}"
   h3 style="color:white;margin-left:15px" #{sentence_info['sequence']}/#{sentence_info['total']}
 div class="row" style="margin-top:40px"
-  div class="input-group"
+  div class="input-group" style="margin-top:50px;"
     span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
-    textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" placeholder="#{sentence_info['question']['content']}" readonly="readonly"
+    textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;color:black;" readonly="readonly" #{sentence_info['question']['content']}
 form method='post' name="sentenceform" action='/rewrite/#{sentence_info['question']['cate']['id']}/sentence' id='form-login' onsubmit="return sentencecheck();"
   div class="row" style="margin-top:10px"
     h3 style="font-size:20px;color:black;" 在「#{sentence_info['question']['cate']['name']}」中屬於什麼小類別？
   div class="row"
-    div class="col-sm-2"
-    div class="col-sm-8"
+    div class="col-sm-4"
+    div class="col-sm-4"
       div class="form-group"
         div class="input-group"
           span class="input-group-addon" for="inputGroupSelect01" 小類別
-          select class="selectpicker form-control" name="detail" id="inputGroupSelect01"
+          select class="selectpicker form-control" name="detail" id="inputGroupSelect01" onchange="detail_description();"
+            option value=-1 請選擇
             - sentence_info['details'].each do |detail|
-              option value="#{detail['id']}" #{detail['name']} #{detail['description']}
-    div class="col-sm-2"
+              option value="#{detail['id']}@#{detail['description']}" #{detail['name']}
+    div class="col-sm-4"
+  p name="tip" id='tip_id' 小類別的範例 
   div class="row"
     h3 style="margin-top:10px;font-size:20px;color:black;" 問句還可以用什麼方式表達：
     input type="text" name="task_id" style="display:none;" value="#{sentence_info['task_id']}"
@@ -24,7 +26,7 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
   div class="row" 
     div class="input-group"
       span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說：
-      input class="form-control" name="sentence" style="font-size: 20px;"
+      input class="form-control" name="sentence" style="font-size: 20px;" autocomplete="off"
     / div class="input-group"
     /   span style="font-size: 20px;padding:0px" class="input-group-addon" 換句話說 2：
     /   input class="form-control" style="font-size: 20px;"
@@ -36,12 +38,40 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
       button class="hero-button text-center" style="background-color:#ff910a;color: white;" type="submit" class="btn btn-lg" 下一題
 
 javascript:
+  
+  $(document).ready(function() {
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+
+  function detail_description(){
+    var selectBox = document.getElementById("inputGroupSelect01");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    if (selectedValue==-1){
+      document.getElementById("tip_id").style.color="black";
+      document.getElementById("tip_id").innerHTML='小類別的範例 ';
+    }else{
+      document.getElementById("tip_id").style.color="blue";
+      example = selectedValue.split("@")[1].split('EX:').join('<br>').substr(4)
+      document.getElementById("tip_id").innerHTML=example;
+    }
+  }
+
   function sentencecheck(){
     var sequence = document.sentenceform.sequence.value
     var total = document.sentenceform.total.value
 
+    if(document.sentenceform.detail.value==-1){
+      alert('小類別不可以為空白')
+      return false
+    }
+
     if(document.sentenceform.sentence.value==''){
-      if (confirm("確定要此題要留空白嗎？")){
+      if (confirm("確定要此題要留空白嗎？送出後無法修改，確定送出嗎?")){
         if (sequence == total){
           alert('恭喜您，已完成！')
           location.href='/'
@@ -52,6 +82,13 @@ javascript:
         return false
       }
     }
+
+    if (confirm("送出後無法修改，確定送出嗎?")){
+      return true
+    }else{
+      return false
+    }
+
 
     if (sequence == total){
       alert('恭喜您，已完成！')
