@@ -30,7 +30,7 @@ module Howtosay
               task_id = routing.params['task_id']
               question_id = routing.params['question_id']
               response = SkipRewrite.new(App.config).call(account_id, task_id, question_id)
-              routing.redirect 'label'
+              routing.redirect '../label'
             end
           end
         end

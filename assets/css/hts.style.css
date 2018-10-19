@@ -70,32 +70,32 @@
 
 
 /*首頁個分類的背景圖*/
-div.eat_image {
+div.eat_image::after {
     content:url(/home/eat_button.png);
     width: 100%;
     height: 100%;
 }
-div.cloth_image {
+div.cloth_image::after {
     content:url(/home/cloth_button.png);
     width: 100%;
     height: 100%;
 }
-div.live_image {
+div.live_image::after {
     content:url(/home/live_button.png);
     width: 100%;
     height: 100%;
 }
-div.traffic_image {
+div.traffic_image::after {
     content:url(/home/traffic_button.png);
     width: 100%;
     height: 100%;
 }
-div.education_image {
+div.education_image::after {
     content:url(/home/education_button.png);
     width: 100%;
     height: 100%;
 }
-div.fun_image {
+div.fun_image::after {
     content:url(/home/fun_button.png);
     width: 100%;
     height: 100%;
