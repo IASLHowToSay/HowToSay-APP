@@ -88,10 +88,15 @@ module Howtosay
             response_data = VerifyRecoveryEmail.new(App.config).call(email)
             flash[:notice] = response_data['message']
             routing.redirect '/'
+          rescue VerifyRecoveryEmail::VerifyRecoveryEmailError => error
+            flash[:error] = '系統寄信失敗'
+            routing.redirect 'forgetpassword'
+          rescue VerifyRecoveryEmail::UnAvilableAccountError => error
+            flash[:error] = '此信箱尚未註冊，請註冊'
+            routing.redirect 'forgetpassword'
           rescue StandardError => error
             puts "ERROR SENDING RECOVERY EMAIL: #{error.inspect}"
-            # puts error.backtrace
-            flash[:error] = ' 信箱寄送失敗'
+            flash[:error] = '系統錯誤'
             routing.redirect 'forgetpassword'
           end
         end
