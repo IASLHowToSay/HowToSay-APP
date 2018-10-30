@@ -1,0 +1,80 @@
+/*首頁公告*/
+.homebanner{
+    background-color: #ffc06d;
+    font-size:20px;
+    color:white;
+}
+
+.circle-square{
+    border-radius:50%;
+}
+
+/*首頁背景*/
+.home_background{
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
+/*首頁個分類進度*/
+.eat_progs{
+    text-align: center;
+    background-color: #f18c1c;
+    font-size: 25px;
+    color:white;
+}
+.cloth_progs{
+    text-align: center;
+    background-color: #d24f3a;
+    font-size: 25px;
+    color:white;
+}
+.live_progs{
+    text-align: center;
+    background-color: #f5d1b2;
+    font-size: 25px;
+    color:white;
+}
+.traffic_progs{
+    text-align: center;
+    background-color: #82b344;
+    font-size: 25px;
+    color:white;
+}
+.education_progs{
+    text-align: center;
+    background-color: #26978f;
+    font-size: 25px;
+    color:white;
+}
+.fun_progs{
+    text-align: center;
+    background-color: #4d4d4d;
+    font-size: 25px;
+    color:white;
+}
+/*首頁個分類的背景圖*/
+div.eat_image{
+    background-color: #f38c00;;
+    text-align: center;
+}
+div.cloth_image{
+    background-color: #d44e34;
+    text-align: center;
+}
+div.live_image{
+    background-color: #f6d0b0;
+    text-align: center;
+}
+div.traffic_image{
+    background-color: #81b33b;
+    text-align: center;
+}
+div.education_image{
+    background-color: #1b978f;
+    text-align: center;
+}
+div.fun_image{
+    background-color: #4d4d4d;
+    text-align: center;
+}

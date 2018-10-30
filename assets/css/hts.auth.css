@@ -1,3 +1,10 @@
+/*首頁背景*/
+.auth_background{
+    background-position: center;
+    background-color: #ffecd4;
+    background-size: contain;
+}
+
 /*會員登入之上banner*/
 .htsbanner{
     text-align: center;

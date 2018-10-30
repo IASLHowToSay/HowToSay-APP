@@ -1,33 +1,91 @@
 body class="home_background" 
   table style="width:100%;table-layout: fixed;"
     tr
-      div class="bulletin col-sm-1" style="height:60px;"
+      div class="homebanner col-sm-2" style="height:60px;"
         - if home_info['teacher']
           img class="circle-square" src="/teacher.png" style="width:50px;height:50px;float:left;margin:5px;"
         - else
           img class="circle-square" src="/student.jpg" style="width:50px;height:50px;float:left;margin:5px;"
-      div class="bulletin col-sm-2" style="height:60px;"
         p style="color:black;margin:0px;padding-top: 4px;font-size: 15px;"
           == home_info['user']['organization']['name']
         p style="color:black;margin:0px;"
           == home_info['user']['name']
-      div class="bulletin col-sm-7" style="height:60px;" 
+      div class="homebanner col-sm-8" style="height:60px;"
         p style="color:black;padding:15px;margin:0px;" 歡迎來到 How to say it，操作方式請看說明！
-      div class="bulletin col-sm-2" style="height:60px;"
+      div class="homebanner col-sm-2" style="height:60px;"
         button class="hero-button text-center" style="background-color:#4d8eb4;color: white;padding:15px;margin: 4px;" class="btn" onclick="alert('#{home_info['description']}');" 說明
+        button class="hero-button text-center" style="background-color:#73a839;color: white;padding:15px;margin: 4px;" class="btn" onclick="window.location.href='/auth/logout';" 登出
     tr
       - home_info['cates'].each do |cate|
         th
-          div class="#{cate['css_progs']}" <br> #{cate['name']} <br> #{cate['progress']}
           - if home_info['user']['can_rewrite'] && !home_info['user']['can_grade']
             - if cate['progress'] != '恭喜完成' && cate['progress'] != '不需作答'
-              a href="/rewrite/#{cate['id']}/label"
+              a href="/rewrite/#{cate['id']}/label" style="text-decoration:none;"
+                div class="#{cate['css_progs']}"
+                  <br>
+                  h1 style="margin:0px;color:white" #{cate['name']} 
+                  <br>
+                  h2 style="margin:0px;color:white" #{cate['progress']}
+                  <br>
                 div class="#{cate['css_img']}"
+                  img src="#{cate['img']}"
+                div id="#{cate['flag']}"
             - else
-              div class="#{cate['css_img']}"
+                div class="#{cate['css_progs']}"
+                  <br>
+                  h1 style="margin:0px;color:white" #{cate['name']} 
+                  <br>
+                  h2 style="margin:0px;color:white" #{cate['progress']}
+                  <br>
+                div class="#{cate['css_img']}"
+                  img src="#{cate['img']}"
+                div id="#{cate['flag']}"
           - else
             - if cate['progress'] != '恭喜完成' && cate['progress'] != '不需作答'
-              a href="/grade/#{cate['id']}"
+              a href="/grade/#{cate['id']}" style="text-decoration:none;"
+                div class="#{cate['css_progs']}"
+                  <br>
+                  h1 style="margin:0px;color:white" #{cate['name']} 
+                  <br>
+                  h2 style="margin:0px;color:white" #{cate['progress']}
+                  <br>
                 div class="#{cate['css_img']}"
+                  img src="#{cate['img']}"
+                div id="#{cate['flag']}"
             - else
-              div class="#{cate['css_img']}"
+                div class="#{cate['css_progs']}"
+                  <br>
+                  h1 style="margin:0px;color:white" #{cate['name']} 
+                  <br>
+                  h2 style="margin:0px;color:white" #{cate['progress']}
+                  <br>
+                div class="#{cate['css_img']}"
+                  img src="#{cate['img']}"
+                div id="#{cate['flag']}"
+  img src="/home/indexbg.jpg" style="width:100%;"
+
+javascript:
+  var width = window.screen.availWidth/12
+  document.getElementById("eat_flag").style.borderTop=width.toString()+"px solid #f38c00";
+  document.getElementById("eat_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("eat_flag").style.borderRight=width.toString()+"px solid transparent";
+
+  document.getElementById("cloth_flag").style.borderTop=width.toString()+"px solid #d44e34";
+  document.getElementById("cloth_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("cloth_flag").style.borderRight=width.toString()+"px solid transparent";
+
+  document.getElementById("live_flag").style.borderTop=width.toString()+"px solid #f6d0b0";
+  document.getElementById("live_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("live_flag").style.borderRight=width.toString()+"px solid transparent";
+
+  document.getElementById("traffic_flag").style.borderTop=width.toString()+"px solid #81b33b";
+  document.getElementById("traffic_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("traffic_flag").style.borderRight=width.toString()+"px solid transparent";
+
+  document.getElementById("education_flag").style.borderTop=width.toString()+"px solid #1b978f";
+  document.getElementById("education_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("education_flag").style.borderRight=width.toString()+"px solid transparent";
+
+  document.getElementById("fun_flag").style.borderTop=width.toString()+"px solid #4d4d4d";
+  document.getElementById("fun_flag").style.borderLeft=width.toString()+"px solid transparent";
+  document.getElementById("fun_flag").style.borderRight=width.toString()+"px solid transparent";
