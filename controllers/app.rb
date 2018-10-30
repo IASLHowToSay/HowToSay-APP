@@ -10,7 +10,7 @@ module Howtosay
   class App < Roda
    
     plugin :render, engine: 'slim', views: 'views', layout: 'layout/layout_home/main'
-    plugin :assets, css: ['hts.style.css'], path: 'assets'
+    plugin :assets, css: ['hts.style.css','hts.auth.css'], path: 'assets'
     # adds a r.public routing method to serve static files from a directory.
     plugin :public, root: 'public'
     plugin :multi_route

@@ -13,7 +13,7 @@ module Howtosay
         # GET /auth/login
         routing.get do
           routing.redirect '/' unless @current_account.nil?
-          view "auth/login", layout: { template: '/layout/layout_auth/main' }
+          view "auth/login", layout: { template: '/layout/layout_login/main' }
         end
 
         # POST /auth/login
@@ -117,7 +117,7 @@ module Howtosay
               token = routing.params['token']
               ResetPassword.new(App.config).call(newpassword, token)
               flash[:notice] = '更新密碼成功！'
-              routing.redirect '/'
+              routing.redirect '../login'
             rescue StandardError => error
               flash[:error] = ' 更新密碼失敗'
               routing.redirect '../forgetpassword'

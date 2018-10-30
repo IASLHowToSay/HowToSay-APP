@@ -2,7 +2,7 @@
 link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"
 link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css" integrity="sha384-KMis1ci1uYEByUqyQ+ys92P9u9WtqmYQmUvEpXsB5BuMYyTHljPVNJ24Jl6ib3o8" crossorigin="anonymous"
 body class="auth_background"
-    div class="row" style="margin-top:100px;"
+    div class="row" style="margin-top:10px;"
       div class="col-sm-4"
       div class="col-sm-4"
         h1 註冊會員
@@ -11,34 +11,34 @@ body class="auth_background"
       div class="col-sm-4"
       div class="col-sm-4"
         form method='post' name="registerform" action='register' id='form-login' onsubmit="return registercheck();"
-          p id="name-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
+          p id="name-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon" 名字
-              input class="form-control" type='text' name='name' placeholder="name" id='input-username' 
-          p id="email-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
+              span class="input-group-addon inputspan" 名字
+              input class="form-control inputplace" type='text' name='name' placeholder="name" id='input-username' 
+          p id="email-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon" 信箱
-              input class="form-control" type="email" autocomplet="off" name='email' placeholder="email" id='input-username'
-          p id="password-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
+              span class="input-group-addon inputspan" 信箱
+              input class="form-control inputplace" type="email" autocomplet="off" name='email' placeholder="email" id='input-username'
+          p id="password-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon" 密碼
-              input class="form-control" type='password' name='password' placeholder="password" id='input-password'
-          p id="organization-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
+              span class="input-group-addon inputspan" 密碼
+              input class="form-control inputplace" type='password' name='password' placeholder="password" id='input-password'
+          p id="organization-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon" for="inputGroupSelect01" 單位
-              select class="selectpicker form-control" name='organization_id' id="inputGroupSelect01"
+              span class="input-group-addon inputspan" for="inputGroupSelect01" 單位
+              select class="selectpicker form-control inputselect" name='organization_id' id="inputGroupSelect01"
                 option value=-1 請選擇
                 - register_info.each do |organization|
                   option value="#{organization['id']}" #{organization['name']}
-          p id="teacher-alert" type="text" style="display:none;font-size:8px;margin: 0 0 0px;"
+          p id="teacher-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon" for="inputGroupSelect01" 角色
-              select class="selectpicker form-control" name='teacher' id="inputGroupSelect01"
+              span class="input-group-addon inputspan" for="inputGroupSelect01" 角色
+              select class="selectpicker form-control inputselect" name='teacher' id="inputGroupSelect01"
                 option value=-1 請選擇
                 option value=0 學生
                 option value=1 老師
