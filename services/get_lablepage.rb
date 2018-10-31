@@ -12,6 +12,7 @@ class GetLabelpage
 
   def call()
     response = HTTP.get("#{@config.API_URL}/rewrite/#{@email}/#{@cate_id}/label")
+    puts response.parse
     response.code == 200 ? response.parse : nil
   end
 end

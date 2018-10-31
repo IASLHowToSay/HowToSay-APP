@@ -1,9 +1,9 @@
 /*首頁公告*/
-.homebanner{
+/* .homebanner{
     background-color: #ffc06d;
     font-size:20px;
     color:white;
-}
+} */
 
 .circle-square{
     border-radius:50%;
@@ -55,7 +55,7 @@
 }
 /*首頁個分類的背景圖*/
 div.eat_image{
-    background-color: #f38c00;;
+    background-color: #f38c00;
     text-align: center;
 }
 div.cloth_image{
@@ -77,4 +77,17 @@ div.education_image{
 div.fun_image{
     background-color: #4d4d4d;
     text-align: center;
+}
+
+.usercard{
+    height: 90px;
+    background-color: #4a8db6;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 4px 4px 12px 4px rgba(20%,20%,40%,0.5);
+    margin-top: 200px;
+}
+
+.logoutbtn{
+    margin:20px;
 }

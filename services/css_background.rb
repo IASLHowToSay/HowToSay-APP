@@ -10,17 +10,23 @@ class CSSBackground
 
   def call()
     if @cate == "食"
-      @info["background"] = "eat_background"
+      @info["background"] = "/eatBG.png"
+      @info["color"] = "#f18c1c"
     elsif @cate == "衣"
-      @info["background"] = "cloth_background"
+      @info["background"] = "/clothBG.png"
+      @info["color"] = "#d24f3a"
     elsif @cate == "住"
-      @info["background"] = "live_background"
+      @info["background"] = "/liveBG.png"
+      @info["color"] = "#f5d1b2"
     elsif @cate == "行"
-      @info["background"] = "traffic_background"
+      @info["background"] = "/trafficBG.png"
+      @info["color"] = "#82b344"
     elsif @cate == "育"
-      @info["background"] = "education_background"
+      @info["background"] = "/educationBG.png"
+      @info["color"] = "#26978f"
     elsif @cate == "樂"
-      @info["background"] = "fun_background"
+      @info["background"] = "/funBG.png"
+      @info["color"] = "#4d4d4d"
     end
     @info
   end

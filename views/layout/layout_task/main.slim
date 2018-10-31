@@ -14,12 +14,10 @@ html
     
     div class='row' id='html_body'
       div class='col-sm-2'
-         button class="btn btn-success" style="margin-top:20px;margin-left:20px;" onclick="window.location.href='/'" 首頁
+         button class="btn homebtn" style="color:white;" onclick="window.location.href='/'" 首頁
       div class='col-sm-8'
         section style ="text-align: center;"
           == render :flash_bar
           / == render :progress_circle
           == yield
       div class='col-sm-2'
-    div class="row" style="text-align: center;"
-      img src="/eatBG.png" width="500px"

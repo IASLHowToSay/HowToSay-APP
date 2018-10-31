@@ -1,0 +1,87 @@
+.bodycolor{
+    background-color:#ffecd4;
+}
+
+.half-circle{
+    margin-left: 45px;
+    margin-top: -20px;
+    border-radius: 0 0 150px 150px;
+    width: 70%;
+    height: 100px;
+    display: block;
+}
+
+.progress-word{
+    color:white;
+    padding-top: 20px;
+}
+
+.questionspan{
+    background-color:#4d8eb4;
+    color: white;
+    border-color: #4d8eb4;
+    font-size: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.questionplace{
+    text-align: center;
+    font-size: 20px;
+    color:black;
+    text-indent: -90px;
+    border-color: #4d8eb4;
+}
+
+.sentencespan{
+    font-size: 20px;
+    padding-left:10px;
+    border-color: #4d8eb4;
+    background-color: #2081ab;
+    color: white;
+}
+
+.sentenceplace{
+    font-size: 20px;
+    text-align: center;
+    text-indent: -90px;
+    border-color: #4d8eb4;
+}
+
+.detailspan{
+    background-color:#4d8eb4;
+    color: white;
+    border-color: #4d8eb4;
+    font-size: 20px;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+}
+
+.detailselect{
+    text-align-last: center;
+    border-color: #4d8eb4;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"><path d="M4 8L0 4h8z"/></svg>');
+    padding: .5em;
+    padding-right: 1.5em;
+}
+
+.detailexplain{
+    font-size: 18px;
+    color:#777777;
+}
+
+.detailexample{
+    font-size: 18px;
+    color: black;
+}
+
+.homebtn{
+    margin-top: 20px;
+    background-color: #82b344;
+    margin-left: 20px;
+    color: white;
+}

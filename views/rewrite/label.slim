@@ -1,23 +1,30 @@
-body class="#{label_info["background"]}"
-  
+body class="bodycolor"
   div class="row"
-    h3 style="color:white;margin-left:15px"   #{label_info['sequence']}/#{label_info['total']}
-  div class="row" style="margin-top:100px"
+  div class="col-sm-4"
+  div class="col-sm-4"
+    div class="half-circle" style="background: #{label_info['color']};"
+      h1 class="progress-word" #{label_info['sequence']}/#{label_info['total']}
+  div class="col-sm-4"
+  div class="row" style="margin-top:150px"
     div class="input-group"
-      span class="input-group-addon" style="font-size: 20px;padding:0px" 問句
-      textarea cols="30" rows="1" class="form-control" style="text-align: center;font-size: 20px;" readonly="readonly" #{label_info['question']['content']} 
+      span class="input-group-addon questionspan" 問句
+      textarea cols="30" rows="1" class="form-control questionplace" readonly="readonly" #{label_info['question']['content']} 
   div class="row" style="margin-top:40px"
     div style="font-size:20px" 問句是否與「#{label_info["question"]["cate"]["name"]}」相關？
   div class="row" style="margin-top:40px" 
-    button style="margin-right:5px;font-size:20px;" class="btn btn-primary" onclick="javascript:location.href='/rewrite/#{label_info['cate_id']}/sentence'" 是
+    button style="margin-right:5px;font-size:20px;background-color:#1d9ce5;color:white;" class="btn" onclick="javascript:location.href='/rewrite/#{label_info['cate_id']}/sentence'" 是
     form method='post' name="labelform" action='/rewrite/#{label_info['question']['cate']['id']}/label/skip' id='form-login' style="display:inline" onsubmit="return labelskipcheck();"
       input type="text" name="task_id" style="display:none;" value="#{label_info['task_id']}"
       input type="text" name="account_id" style="display:none;" value="#{label_info['account_id']}"
       input type="text" name="question_id" style="display:none;" value="#{label_info['question']['id']}"
       input type="text" name="sequence" style="display:none;" value="#{label_info['sequence']}"
       input type="text" name="total" style="display:none;" value="#{label_info['total']}"
-      button style="margin-left:5px;font-size:20px;" type="submit" class="btn btn-danger" 否
-
+      button style="margin-left:5px;font-size:20px;background-color:#b5191f;color:white;" type="submit" class="btn btn-danger" 否
+  div class="row" style="text-align: center;"
+    div class="col-sm-1"
+    div class="col-sm-10"
+      img src="#{label_info["background"]}" width="500px"
+    div class="col-sm-1"
 javascript:
   function labelskipcheck(){
     
