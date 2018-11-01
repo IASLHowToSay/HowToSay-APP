@@ -29,13 +29,16 @@
     border-color: #4d8eb4;
 }
 
-.inputplace{
+.inputspan-long{
+    background-color:#4d8eb4;
+    color: white;
     border-color: #4d8eb4;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
-.inputselect{
+.inputplace{
     border-color: #4d8eb4;
-    -webkit-appearance: none;
 }
 
 .inputalert{
@@ -45,5 +48,62 @@
 }
 
 .backbutton{
+    background-color:#376986;
+    color:white;
     margin-top: 20px;
+}
+
+.backbutton:hover{
+    color:white;
+}
+
+.btn-login{
+  background-color:#4d8eb4;
+  color:white;
+}
+
+.btn-login:hover{
+    color:white;
+}
+
+a{
+    color: #5694b9;
+}
+
+.btn-register{
+    background-color:#4d8eb4;
+    color:white;
+}
+
+.btn-register:hover{
+    color:white;
+}
+
+.auth-select{
+    border-color: #4d8eb4;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"><path d="M4 8L0 4h8z"/></svg>');
+    padding: .5em;
+    padding-right: 1.5em;
+}
+
+.forgetpassword-btn{
+    background-color:#d01e24;
+    color:white;
+}
+
+.forgetpassword-btn:hover{
+    color:white;
+}
+
+.resetpassword-btn{
+    background-color:#82b344;
+    color:white;
+}
+
+.resetpassword-btn:hover{
+    color:white;
 }

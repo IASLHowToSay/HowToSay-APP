@@ -2,6 +2,28 @@
     background-color:#ffecd4;
 }
 
+.yes-btn{
+    margin-right:5px;
+    font-size:20px;
+    background-color:#1d9ce5;
+    color:white;
+}
+
+.yes-btn:hover{
+    color:white;
+}
+
+.no-btn{
+    margin-left:5px;
+    font-size:20px;
+    background-color:#b5191f;
+    color:white;
+}
+
+.no-btn:hover{
+    color:white;
+}
+
 .half-circle{
     margin-left: 45px;
     margin-top: -20px;
@@ -84,4 +106,19 @@
     background-color: #82b344;
     margin-left: 20px;
     color: white;
+}
+
+.homebtn:hover{
+    color: white;
+}
+
+.relative-word{
+    font-size:20px;
+    color:#2081ab;
+}
+
+.detail-word{
+    font-size:20px;
+    color:#2081ab;
+    margin-top: 30px;
 }

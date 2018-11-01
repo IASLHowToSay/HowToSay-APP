@@ -9,7 +9,7 @@ div class="row" style="margin-top:40px"
   h3 請您幫我換句話說
   div class="input-group" style="margin-top:70px"
     span class="input-group-addon questionspan" 問句
-    textarea cols="30" rows="1" class="form-control questionplace" readonly="readonly" #{sentence_info['question']['content']}
+    textarea cols="30" rows="1" class="form-control questionplace" id="question" readonly="readonly" value="#{sentence_info['question']['content']}" #{sentence_info['question']['content']}
 form method='post' name="sentenceform" action='/rewrite/#{sentence_info['question']['cate']['id']}/sentence' id='form-login' onsubmit="return sentencecheck();"
   div class="row"
     input type="text" name="question_content" style="display:none;" value="#{sentence_info['question']['content']}"
@@ -18,9 +18,10 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
   div class="row" 
     div class="input-group" style="margin-top:20px;"
       span class="input-group-addon sentencespan" 換句話說
-      input class="form-control sentenceplace" name="sentence" autocomplete="off"
+      textarea cols="30" rows="1" class="form-control questionplace" name="sentence" id="sentence" autocomplete="off"
+      / input class="form-control sentenceplace" name="sentence" autocomplete="off"
   div class="row" style="margin-top:10px"
-    h3 style="font-size:20px;color:#2081ab;margin-top: 30px;" 您覺得此問句屬於哪個類別
+    h3 class="detail-word" 您覺得此問句屬於哪個類別
   div class="row"
     div class="col-sm-4"
     div class="col-sm-4"
@@ -37,11 +38,11 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
     p name="tip" class="detailexample" id='tip_id'
   div class="row" style="margin-top:50px;float:right;"
     div class="col-sm-10"
-    div class="col-sm-2" style="text-align:right"
+    div class="col-sm-2"
       input type="text" name="sequence" style="display:none;" value="#{sentence_info['sequence']}"
       input type="text" name="total" style="display:none;" value="#{sentence_info['total']}"
       button class="hero-button text-center" style="background-color:#{sentence_info['color']};color: white;margin-top:-300px;" type="submit" class="btn btn-lg" 下一題
-  div class="row" style="text-align: center;margin-top:20px;"
+  div class="row" style="margin-top:20px;"
     div class="col-sm-2"
     div class="col-sm-8"
       img src="#{sentence_info["background"]}" width="500px"
@@ -56,6 +57,32 @@ javascript:
       }
     });
   });
+
+  if (document.getElementById("question").value.length > 35){
+    var row_length = Math.ceil(document.getElementById("question").value.length/40)
+    document.getElementById("question").style.textIndent="0px";
+    document.getElementById("question").rows=row_length;
+  }
+
+  window.onload = function () {
+    function txtCount(el) {
+      var val = el.value;
+      var eLen = val.length;
+      return eLen;
+    }
+    var el = document.getElementById('sentence');
+    el.addEventListener('input',function () {
+      var len =  txtCount(this); //   调用函数
+      if(len>35){
+        el.style.textIndent = '0px';
+        el.rows = 3;
+      }
+      if(len<=35){
+        el.style.textIndent = '-90px';
+        el.rows = 1;
+      }
+    });
+  }
 
   function detail_description(){
     

@@ -4,6 +4,9 @@
     font-size:20px;
     color:white;
 } */
+.table tbody tr td{
+    vertical-align: middle;
+}
 
 .circle-square{
     border-radius:50%;
@@ -89,5 +92,11 @@ div.fun_image{
 }
 
 .logoutbtn{
-    margin:20px;
+    background-color: #4d8eb4;
+    margin: 20px;
+    color: white;
+}
+
+.logoutbtn:hover{
+    color: white;
 }

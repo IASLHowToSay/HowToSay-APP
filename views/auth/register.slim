@@ -14,36 +14,41 @@ body class="auth_background"
           p id="name-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon inputspan" 名字
-              input class="form-control inputplace" type='text' name='name' placeholder="name" id='input-username' 
+              span class="input-group-addon inputspan-long" 名字
+              input class="form-control inputplace" type='text' placeholder="name" autocomplete="off" name='name' id='input-username' 
           p id="email-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon inputspan" 信箱
-              input class="form-control inputplace" type="email" autocomplet="off" name='email' placeholder="email" id='input-username'
+              span class="input-group-addon inputspan-long" 信箱
+              input class="form-control inputplace" type="email" placeholder="email" autocomplete="off" name='email' id='input-username'
           p id="password-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon inputspan" 密碼
-              input class="form-control inputplace" type='password' name='password' placeholder="password" id='input-password'
+              span class="input-group-addon inputspan-long" 密碼
+              input class="form-control inputplace" type='password' placeholder="password" name='password' id='input-password'
+          p id="password-again-alert" class="inputalert" type="text"
+          div class="form-group"
+            div class="input-group"
+              span class="input-group-addon inputspan" 確認密碼
+              input class="form-control inputplace" type='password' placeholder="password again" name='passwordagain' id='input-password-again'
           p id="organization-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon inputspan" for="inputGroupSelect01" 單位
-              select class="selectpicker form-control inputselect" name='organization_id' id="inputGroupSelect01"
+              span class="input-group-addon inputspan-long" for="inputGroupSelect01" 單位
+              select class="selectpicker form-control auth-select" name='organization_id' id="inputGroupSelect01"
                 option value=-1 請選擇
                 - register_info.each do |organization|
                   option value="#{organization['id']}" #{organization['name']}
           p id="teacher-alert" class="inputalert" type="text"
           div class="form-group"
             div class="input-group"
-              span class="input-group-addon inputspan" for="inputGroupSelect01" 角色
-              select class="selectpicker form-control inputselect" name='teacher' id="inputGroupSelect01"
+              span class="input-group-addon inputspan-long" for="inputGroupSelect01" 角色
+              select class="selectpicker form-control auth-select" name='teacher' id="inputGroupSelect01"
                 option value=-1 請選擇
                 option value=0 學生
                 option value=1 老師
           div class="form-group"
-            button type='submit' id='button-register' value='' class="btn btn-primary btn-block" 註冊
+            button type='submit' id='button-register' value='' class="btn btn-register btn-block" 註冊
       div class="col-sm-4"
 
 javascript:
@@ -71,6 +76,15 @@ javascript:
     }else{
       document.getElementById("password-alert").style.display="none";
     }
+
+    if(document.registerform.passwordagain.value != document.registerform.password.value){
+      document.getElementById("password-again-alert").style.display="block";
+      document.getElementById("password-again-alert").style.color="red";
+      document.getElementById("password-again-alert").innerHTML="與密碼不符，請重輸入";
+    }else{
+      document.getElementById("password-again-alert").style.display="none";
+    }
+
     if(document.registerform.organization_id.value==-1){
       document.getElementById("organization-alert").style.display="block";
       document.getElementById("organization-alert").style.color="red";
