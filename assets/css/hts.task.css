@@ -25,17 +25,17 @@
 }
 
 .half-circle{
-    margin-left: 45px;
-    margin-top: -20px;
+    /* margin-left: 45px; */
+    margin-top: -30px;
     border-radius: 0 0 150px 150px;
-    width: 70%;
+    width: 100%;
     height: 100px;
     display: block;
 }
 
 .progress-word{
     color:white;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 .questionspan{
