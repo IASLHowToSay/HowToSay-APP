@@ -26,11 +26,15 @@ module Howtosay
           routing.on 'skip' do
             # POST rewrite/[cate_id]/label/skip
             routing.post do
-              account_id = @current_account["id"]
-              task_id = routing.params['task_id']
-              question_id = routing.params['question_id']
-              response = SkipRewrite.new(App.config).call(account_id, task_id, question_id)
-              routing.redirect '../label'
+              unless @current_account.nil?
+                account_id = @current_account["id"]
+                task_id = routing.params['task_id']
+                question_id = routing.params['question_id']
+                response = SkipRewrite.new(App.config).call(account_id, task_id, question_id)
+                routing.redirect '../label'
+              else
+                routing.redirect '../../../auth/login'
+              end
             end
           end
         end
@@ -53,14 +57,17 @@ module Howtosay
           # POST rewrite/[cate_id]/sentence
           # 存到 good_question, good_detail, good_sentence
           routing.post do
-            account_id = @current_account["id"]
-            task_id = routing.params['task_id']
-            question_id = routing.params['question_id']
-            detail_id = routing.params['detail'].split('@')[0]
-            puts detail_id
-            sentence = routing.params['sentence']
-            response = SaveRewrite.new(App.config).call(account_id, task_id, question_id, detail_id, sentence)
-            routing.redirect 'label'
+            unless @current_account.nil?
+              account_id = @current_account["id"]
+              task_id = routing.params['task_id']
+              question_id = routing.params['question_id']
+              detail_id = routing.params['detail'].split('@')[0]
+              sentence = routing.params['sentence']
+              response = SaveRewrite.new(App.config).call(account_id, task_id, question_id, detail_id, sentence)
+              routing.redirect 'label'
+            else
+              routing.redirect '../../../auth/login'
+            end
           end
         end
       end
