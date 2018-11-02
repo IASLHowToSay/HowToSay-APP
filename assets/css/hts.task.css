@@ -25,10 +25,9 @@
 }
 
 .half-circle{
-    margin-left: 45px;
     margin-top: -20px;
     border-radius: 0 0 150px 150px;
-    width: 70%;
+    width: 100%;
     height: 100px;
     display: block;
 }
