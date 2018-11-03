@@ -2,14 +2,14 @@
 development:
   API_URL: http://localhost:9292/api/v1
   APP_URL: http://localhost:3000
-  MACHINE_URL: http://localhost:3000
+  MACHINE_URL: http://howtosay.iis.sinica.edu.tw:8080
 
 test:
   API_URL: http://localhost:9292/api/v1
   APP_URL: http://localhost:3000
-  MACHINE_URL: http://howtosay.iis.sinica.edu.tw
+  MACHINE_URL: http://howtosay.iis.sinica.edu.tw:8080
 
 production:
   API_URL: http://howtosay.iis.sinica.edu.tw:9292
   APP_URL: http://howtosay.iis.sinica.edu.tw:8080
-  MACHINE_URL: http://howtosay.iis.sinica.edu.tw
+  MACHINE_URL: http://howtosay.iis.sinica.edu.tw:8080

@@ -106,7 +106,6 @@ module Howtosay
         routing.on String do |password_recovery_token| 
           # GET /auth/resetpassword/[password_recovery_token]
           routing.get do
-            flash[:notice] = '請填入新的密碼'
             info = {token: password_recovery_token}
             view "auth/reset_password", layout: { template: '/layout/layout_auth/main' },locals: { :token_info=> info }
           end
