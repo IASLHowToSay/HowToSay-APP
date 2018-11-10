@@ -8,7 +8,7 @@ div class="row"
 div class="row" style="margin-top:40px"
   h3 請您幫我換句話說
   div class="input-group" style="margin-top:70px"
-    span class="input-group-addon questionspan" 問句
+    span class="input-group-addon questionspan" 句子
     textarea cols="30" rows="1" class="form-control questionplace" id="question" readonly="readonly" value="#{sentence_info['question']['content']}" #{sentence_info['question']['content']}
 form method='post' name="sentenceform" action='/rewrite/#{sentence_info['question']['cate']['id']}/sentence' id='form-login' onsubmit="return sentencecheck();"
   div class="row"
@@ -21,7 +21,7 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
       textarea cols="30" rows="1" class="form-control questionplace" name="sentence" id="sentence" autocomplete="off"
       / input class="form-control sentenceplace" name="sentence" autocomplete="off"
   div class="row" style="margin-top:10px"
-    h3 class="detail-word" 您覺得此問句屬於哪個類別
+    h3 class="detail-word" 您覺得此句子屬於哪個類別
   div class="row"
     div class="col-sm-4"
     div class="col-sm-4"
@@ -41,7 +41,7 @@ form method='post' name="sentenceform" action='/rewrite/#{sentence_info['questio
     div class="col-sm-2"
       input type="text" name="sequence" style="display:none;" value="#{sentence_info['sequence']}"
       input type="text" name="total" style="display:none;" value="#{sentence_info['total']}"
-      button class="hero-button text-center" style="background-color:#{sentence_info['color']};color: white;margin-top:-300px;" type="submit" class="btn btn-lg" 下一題
+      button class="hero-button text-center" style="background-color:#4d8eb4;color: white;margin-top:-300px;" type="submit" class="btn btn-lg" 下一題
   div class="row" style="margin-top:20px;"
     div class="col-sm-2"
     div class="col-sm-8"
@@ -57,6 +57,12 @@ javascript:
       }
     });
   });
+
+  function home(){
+    if (confirm('提醒：題目答案只有在按下「下一題」才會被儲存喔！\n回首頁請按「確認」')){
+      window.location.href='/'
+    }
+  }
 
   if (document.getElementById("question").value.length > 35){
     var row_length = Math.ceil(document.getElementById("question").value.length/40)

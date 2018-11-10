@@ -27,6 +27,10 @@ body class="bodycolor"
     div class="col-sm-1"
 javascript:
 
+  function home(){
+    window.location.href='/'
+  }
+
   if (document.getElementById("question").value.length > 35){
     var row_length = Math.ceil(document.getElementById("question").value.length/50)
     document.getElementById("question").style.textIndent="0px";
