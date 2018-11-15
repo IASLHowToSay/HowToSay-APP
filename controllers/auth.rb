@@ -12,7 +12,6 @@ module Howtosay
 
         # GET /auth/login
         routing.get do
-          routing.redirect '/' unless @current_account.nil?
           view "auth/login", layout: { template: '/layout/layout_login/main' }
         end
 
